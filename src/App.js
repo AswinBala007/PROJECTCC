@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route,Routes,BrowserRouter} from 'react-router-dom';
+import EmpDelete from './components/delete';
+import TodoPlanner from './components/get';
+import { NavBar } from './components/navbar';
+import TodoForm from './components/post';
+import TodoItem from './components/update';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<TodoPlanner/>} />
+          <Route path="/get" element={<TodoPlanner/>} />
+          <Route path="/create" element={<TodoForm />} />
+          <Route path="/update" element={<TodoItem />} />
+          <Route path="/delete" element={<EmpDelete />} />
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+ 
